@@ -12,6 +12,7 @@ const usuarioFixo = {
   username: 'usuario1',
   senha: bcrypt.hashSync('Senha123', 10),
   nome: 'Usuário Teste',
+  userId: '1',
   dataNascimento: '1990-01-01',
   nomePai: 'João Teste',
   nomeMae: 'Maria Teste',
@@ -71,6 +72,15 @@ function resetUsers() {
   users.length = 0;
 }
 
+function deleteUserEmail(userId) {
+  const user = findUserById(userId);
+  if (user) {
+    user.email = null; // Or set to an empty string, depending on desired behavior
+    return true;
+  }
+  return false;
+}
+
 module.exports = {
   users,
   createUser,
@@ -78,5 +88,6 @@ module.exports = {
   findUserByUsername,
   findUserById,
   updateUser,
-  resetUsers
-}; 
+  resetUsers,
+  deleteUserEmail
+};
