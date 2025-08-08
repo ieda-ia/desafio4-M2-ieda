@@ -14,7 +14,7 @@ function gerarCredenciaisAleatorias() {
   };
 }
 
-const apiUrl = process.env.BASE_URL;
+const apiUrl = process.env.API_BASE_URL
 
 async function cadastrarUsuario(dados) {
   const resposta = await request(apiUrl)

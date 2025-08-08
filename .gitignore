@@ -78,7 +78,7 @@ dist
 
 # Gatsby files
 .cache/
-public
+
 
 # Storybook build outputs
 .out
@@ -149,4 +149,8 @@ ehthumbs.db
 Thumbs.db 
 
 #test
+#test
 mochawesome-report/
+reports/
+screenshots/
+cypress/screenshots/ 
