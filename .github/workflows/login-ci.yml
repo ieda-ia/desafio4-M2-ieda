@@ -1,0 +1,29 @@
+name: 'Login | Desafio 4 - CI'
+
+# gatilhos/triggers
+on: 
+  workflow_dispatch:
+
+jobs:
+  cypress-test: 
+    runs-on: macos-latest
+
+    env:
+      API_BASE_URL: 'http://localhost:3004'       
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Iniciar o servidor de mocks
+        run: npm run start-api &
+      
+      - name: Iniciar o servidor da aplicacao
+        run: npm start &
+
+      - name: Executar testes de login Cypress
+        run: npx cypress run
+
